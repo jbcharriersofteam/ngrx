@@ -1,0 +1,9 @@
+<h2>Liste des tâches</h2>
+<button (click)="loadTodos()">Charger les tâches</button>
+<ul>
+  @for(todo of todos$ | async ; track todo){
+  <li>{{ todo }} <button (click)="removeTodo(todo)">X</button></li>
+  }
+</ul>
+<input [(ngModel)]="newTodo" placeholder="Nouvelle tâche" />
+<button (click)="addTodo()">Ajouter</button>
