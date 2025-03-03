@@ -1,16 +1,2 @@
-<!-- Use Signal -->
-<input type="text" [formControl]="searchInput">
-<div>
-  @for(product of products() ; track product.id){
-  {{ product.name }}
-  }
-</div>
-
-<!-- Use Input Signal -->
-<button (click)="changeTitle()">Change title</button>
-
-<app-comments (comment)="printComment($event)" [title]="myTitle"></app-comments>
-
-
-
-<router-outlet />
+<h1>Bienvenue sur notre Todo App avec NgRx</h1>
+<app-todo></app-todo>
