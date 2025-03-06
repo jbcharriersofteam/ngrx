@@ -17,3 +17,16 @@ export const removeTodo = createAction(
   '[Todo] Remove Todo',
   props<{ todo: string }>()
 );
+
+
+// import { createActionGroup, emptyProps, props } from '@ngrx/store';
+// import { User } from './user';
+
+// export const usersActions = createActionGroup({
+//   source: 'Users',
+//   events: {
+//     'Get All':  emptyProps(),
+//     'Get All Success': props<{ users: User[] }>(),
+//     'Get All Failure': props<{ error: any }>()
+//   },
+// });

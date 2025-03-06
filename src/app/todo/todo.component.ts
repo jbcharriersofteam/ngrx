@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, model, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AppState } from '../../ngrx/app.state';
@@ -15,9 +15,9 @@ import * as TodoActions from '../../ngrx/todo.actions';
 })
 export class TodoComponent implements OnInit {
   todos$: Observable<string[]>;
-  newTodo: string = '';
+  newTodo = model('');
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>){
     this.todos$ = this.store.select((state) => state.todos.todos);
   }
 
@@ -30,9 +30,9 @@ export class TodoComponent implements OnInit {
   }
 
   addTodo() {
-    if (this.newTodo.trim()) {
-      this.store.dispatch(TodoActions.addTodo({ todo: this.newTodo }));
-      this.newTodo = '';
+    if (this.newTodo().trim()) {
+      this.store.dispatch(TodoActions.addTodo({ todo: this.newTodo() }));
+      this.newTodo.set('');
     }
   }
 

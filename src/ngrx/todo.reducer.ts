@@ -1,11 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
+import { TodoState } from './app.state';
 import * as TodoActions from './todo.actions';
-
-export interface TodoState {
-  todos: string[];
-  loading: boolean;
-  error: string | null;
-}
 
 export const initialState: TodoState = {
   todos: [],
